@@ -75,3 +75,7 @@ Logs and recent translations are in `~/.local/state/shona-translate/`.
 Recorded audio is sent to Google for transcription. Translation happens
 locally. The last 10 recordings are kept in
 `~/.local/state/shona-translate/history/` so you can replay them.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
