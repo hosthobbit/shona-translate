@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "shona.caption",
+  "name": "Shona translate caption",
+  "version": "0.1.0",
+  "author": "shona-translate",
+  "description": "Small overlay that shows the current status and the last English translation.",
+  "kinds": [
+    "panel"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "panel": "ShonaCaption.qml"
+  }
+}

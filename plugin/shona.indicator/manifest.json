@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "shona.indicator",
+  "name": "Shona translate",
+  "version": "0.1.0",
+  "author": "shona-translate",
+  "description": "Click to start listening in Shona; click again to translate to English.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "ShonaIndicator.qml"
+  },
+  "barWidget": {
+    "displayName": "Shona translate",
+    "description": "Listening state for shona-translate",
+    "category": "Audio",
+    "allowMultiple": false
+  }
+}

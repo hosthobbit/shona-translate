@@ -1,0 +1,27 @@
+[Unit]
+Description=shona-translate — push-to-talk Shona to English translation
+PartOf=graphical-session.target
+After=graphical-session.target
+# A missing GPU/model is not a transient fault: without the rate limit a
+# broken install restarts every 3s forever and floods the journal.
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Type=simple
+ExecStart=%h/.local/share/shona-translate/bin/shona-translate run
+# `quit` and SIGINT return 0 and stay down; anything else restarts.
+Restart=on-failure
+RestartSec=3
+PrivateTmp=true
+ProtectSystem=strict
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+NoNewPrivileges=true
+# Needs the real /dev for the GPU (nvidia) and PipeWire's runtime socket.
+DevicePolicy=auto
+
+[Install]
+WantedBy=graphical-session.target

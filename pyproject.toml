@@ -1,0 +1,23 @@
+[project]
+name = "shona-translate"
+version = "0.1.0"
+description = "Push-to-talk Shona to English speech translation for Omarchy"
+requires-python = ">=3.10"
+dependencies = [
+    "faster-whisper>=1.0",
+    "sounddevice>=0.4",
+    "numpy",
+    "torch>=2.2",
+    "transformers>=4.40",
+    "sentencepiece>=0.2",
+]
+
+[project.scripts]
+shona-translate = "shona_translate.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

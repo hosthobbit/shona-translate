@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Installed launcher: resolves to whatever directory it actually lives in
+# (the installer copies this tree to ~/.local/share/shona-translate), so it
+# keeps working after being copied out of this checkout.
+set -euo pipefail
+SELF="$(readlink -f "${BASH_SOURCE[0]}")"
+ROOT="$(cd "$(dirname "$SELF")/.." && pwd)"
+PY="$ROOT/venv/bin/python"
+export PYTHONPATH="$ROOT/src${PYTHONPATH:+:$PYTHONPATH}"
+
+# ctranslate2 loads cuBLAS/cuDNN at runtime; they live inside the venv's
+# nvidia-*-cu12 wheels rather than on the system loader path, since this
+# machine has the driver but no full CUDA toolkit installed. Those wheels
+# are namespace packages with no __file__, so glob site-packages directly
+# instead of importing them.
+SITE_PACKAGES="$("$PY" -c "import site; print(site.getsitepackages()[0])")"
+CUDA_LIBS="$(find "$SITE_PACKAGES/nvidia" -maxdepth 2 -type d -name lib 2>/dev/null | paste -sd: -)"
+if [ -n "$CUDA_LIBS" ]; then
+  export LD_LIBRARY_PATH="${CUDA_LIBS}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+fi
+
+exec "$PY" -m shona_translate "$@"

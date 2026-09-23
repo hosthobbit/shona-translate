@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "shona.settings",
+  "name": "Shona translate settings",
+  "version": "0.1.0",
+  "author": "shona-translate",
+  "description": "Pick and test the microphone shona-translate records from.",
+  "kinds": [
+    "panel"
+  ],
+  "entryPoints": {
+    "panel": "SettingsPanel.qml"
+  }
+}

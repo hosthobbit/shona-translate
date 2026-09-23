@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "shona.history",
+  "name": "Shona translate history",
+  "version": "0.1.0",
+  "author": "shona-translate",
+  "description": "Last 10 translations, each with its recording — copy the text or play it back.",
+  "kinds": [
+    "panel"
+  ],
+  "entryPoints": {
+    "panel": "HistoryPanel.qml"
+  }
+}
