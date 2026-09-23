@@ -79,3 +79,11 @@ locally. The last 10 recordings are kept in
 ## License
 
 MIT, see [LICENSE](LICENSE).
+
+---
+
+## About Host Hobbit
+
+Built and maintained by **[Host Hobbit Ltd](https://hosthobbit.com)**: managed WordPress hosting, WHM/cPanel and VPS administration, security hardening and AI automation for businesses in the UK.
+
+Need help deploying this, or want something similar built for your business? [Get in touch](https://hosthobbit.com).
